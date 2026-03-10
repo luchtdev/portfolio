@@ -32,7 +32,6 @@
       cursor: none;
     }
 
-    /* ─── CUSTOM CURSOR ─── */
     .cursor {
       position: fixed;
       width: 10px; height: 10px;
@@ -55,12 +54,10 @@
       transition: all .08s linear;
     }
 
-    /* ─── SCROLLBAR ─── */
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 2px; }
 
-    /* ─── BINARY RAIN ─── */
     #binary-canvas {
       position: fixed;
       top: 0; left: 0;
@@ -70,7 +67,6 @@
       z-index: 0;
     }
 
-    /* ─── SCANLINE OVERLAY ─── */
     .scanlines {
       position: fixed;
       inset: 0;
@@ -85,7 +81,6 @@
       z-index: 1;
     }
 
-    /* ─── NAV ─── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -122,7 +117,6 @@
     .nav-links a:hover { color: var(--green); }
     .nav-links a::before { content: './'; color: var(--green-dim); }
 
-    /* ─── SECTION WRAPPER ─── */
     .section {
       position: relative;
       z-index: 2;
@@ -131,7 +125,6 @@
       padding: 0 2rem;
     }
 
-    /* ─── HERO ─── */
     #hero {
       min-height: 100vh;
       display: flex;
@@ -209,10 +202,7 @@
       letter-spacing: .08em;
     }
 
-    /* ─── TYPED ANIMATION ─── */
     .typed-text { display: inline-block; }
-
-    /* ─── SECTION HEADINGS ─── */
     .sec-label {
       font-family: 'Fira Code', monospace;
       font-size: .72rem;
@@ -240,7 +230,6 @@
     }
     .sec-title .g { color: var(--green); }
 
-    /* ─── STATS PANEL ─── */
     #stats { padding: 7rem 0; }
     .stats-grid {
       display: grid;
@@ -298,7 +287,6 @@
       margin-top: .4rem;
     }
 
-    /* ─── SKILLS ─── */
     #skills { padding: 7rem 0; }
     .skills-container {
       display: grid;
@@ -372,7 +360,6 @@
       box-shadow: 0 0 8px rgba(0,255,65,.4);
     }
 
-    /* ─── GITHUB ─── */
     #github { padding: 7rem 0; }
     .repo-list { display: flex; flex-direction: column; gap: 1px; background: var(--green-border); border: 1px solid var(--green-border); }
     .repo-row {
@@ -485,7 +472,6 @@
       white-space: nowrap;
     }
 
-    /* ─── CONTACT ─── */
     #contact {
       padding: 8rem 0;
       text-align: center;
@@ -605,7 +591,6 @@
     .social-link:hover { border-color: var(--green-border); color: var(--green); }
     .social-link svg { width: 14px; height: 14px; fill: currentColor; }
 
-    /* ─── FOOTER ─── */
     footer {
       position: relative;
       z-index: 2;
@@ -618,7 +603,6 @@
     }
     footer span { color: #333; }
 
-    /* ─── GLITCH ─── */
     @keyframes glitch {
       0%,95%,100% { clip-path: none; transform: none; }
       96% { clip-path: inset(20% 0 60% 0); transform: translate(-4px, 2px); }
@@ -627,7 +611,6 @@
     }
     .glitch { animation: glitch 5s infinite; }
 
-    /* ─── FADE IN ─── */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -635,7 +618,6 @@
     }
     .fade-in.visible { opacity: 1; transform: none; }
 
-    /* ─── RESPONSIVE ─── */
     @media (max-width: 640px) {
       .terminal-body { padding: 1.25rem 1.25rem 1.75rem; }
       .nav-links { display: none; }
@@ -646,17 +628,13 @@
 </head>
 <body>
 
-<!-- Custom Cursor -->
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- Binary Rain Canvas -->
 <canvas id="binary-canvas"></canvas>
-
-<!-- Scanlines -->
+  
 <div class="scanlines"></div>
 
-<!-- ─── NAV ─── -->
 <nav>
   <div class="nav-inner">
     <div class="logo">&gt; <span>lucht</span>.tech<span style="color:var(--green)">_</span></div>
@@ -669,7 +647,6 @@
   </div>
 </nav>
 
-<!-- ─── HERO ─── -->
 <section id="hero">
   <div class="section">
     <div class="terminal-window">
@@ -717,7 +694,6 @@
   </div>
 </section>
 
-<!-- ─── STATS PANEL ─── -->
 <section id="stats">
   <div class="section fade-in">
     <div class="sec-label">performance metrics</div>
@@ -749,7 +725,6 @@
       </div>
     </div>
 
-    <!-- Code principles strip -->
     <div style="margin-top:1.5rem;background:var(--bg2);border:1px solid var(--green-border);padding:1.25rem 2rem;display:flex;flex-wrap:wrap;gap:2rem;align-items:center;">
       <span style="font-family:'Fira Code',monospace;font-size:.72rem;color:var(--green);">// clean_code_principles:</span>
       <span style="font-family:'Fira Code',monospace;font-size:.72rem;color:#333;">DRY</span>
@@ -762,13 +737,12 @@
   </div>
 </section>
 
-<!-- ─── SKILLS ─── -->
 <section id="skills">
   <div class="section fade-in">
     <div class="sec-label">technical skills</div>
     <h2 class="sec-title">Stack &amp; <span class="g">Araçlar</span></h2>
     <div class="skills-container">
-      <!-- Frontend -->
+     
       <div class="skill-group">
         <div class="skill-group-title">// frontend</div>
 
@@ -805,7 +779,6 @@
         </div>
       </div>
 
-      <!-- Backend -->
       <div class="skill-group">
         <div class="skill-group-title">// backend</div>
 
@@ -842,7 +815,6 @@
         </div>
       </div>
 
-      <!-- Tools -->
       <div class="skill-group">
         <div class="skill-group-title">// tools & devops</div>
 
@@ -882,7 +854,6 @@
   </div>
 </section>
 
-<!-- ─── GITHUB ─── -->
 <section id="github">
   <div class="section fade-in">
     <div class="sec-label">github repositories</div>
@@ -946,7 +917,6 @@
       </div>
     </div>
 
-    <!-- Commit log -->
     <div class="commit-list">
       <div class="commit-header">
         <div class="commit-dot"></div>
@@ -976,7 +946,6 @@
   </div>
 </section>
 
-<!-- ─── CONTACT ─── -->
 <section id="contact">
   <div class="section fade-in">
     <div class="contact-box">
@@ -1012,7 +981,6 @@
   </div>
 </section>
 
-<!-- ─── FOOTER ─── -->
 <footer>
   <div style="max-width:1200px;margin:0 auto;">
     <span style="font-family:'Fira Code',monospace;color:var(--green);">&gt;</span>
@@ -1022,7 +990,6 @@
 </footer>
 
 <script>
-/* ─── CUSTOM CURSOR ─── */
 const cursor = document.getElementById('cursor');
 const cursorRing = document.getElementById('cursorRing');
 let mx = 0, my = 0, rx = 0, ry = 0;
@@ -1052,7 +1019,6 @@ document.querySelectorAll('a,button,.cta-btn').forEach(el => {
   });
 });
 
-/* ─── BINARY RAIN ─── */
 const canvas = document.getElementById('binary-canvas');
 const ctx = canvas.getContext('2d');
 let cols, drops;
@@ -1079,7 +1045,6 @@ function drawRain() {
 }
 setInterval(drawRain, 55);
 
-/* ─── TYPED COMMAND ─── */
 const cmds = [
   'npm run dev',
   'git commit -m "feat: new feature"',
@@ -1103,13 +1068,11 @@ function typeLoop() {
 }
 typeLoop();
 
-/* ─── INTERSECTION OBSERVER (FADE IN + COUNTERS + BARS) ─── */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       e.target.classList.add('visible');
 
-      // counters
       e.target.querySelectorAll('.counter').forEach(counter => {
         const target = +counter.getAttribute('data-target');
         let current = 0;
@@ -1122,7 +1085,6 @@ const observer = new IntersectionObserver(entries => {
         tick();
       });
 
-      // skill bars
       e.target.querySelectorAll('.bar-fill').forEach(bar => {
         setTimeout(() => {
           bar.style.width = bar.getAttribute('data-width') + '%';
