@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lucht Gastronomy — Lezzetin Modern Yüzü</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-light: #e8c85a;
+      --gold-dim: rgba(212, 175, 55, 0.15);
+      --anthracite: #1a1a1a;
+      --anthracite-mid: #202020;
+      --anthracite-light: #2a2a2a;
+      --cream: #f8f4ed;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--anthracite);
+      color: #e8e0d0;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--anthracite); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+    .font-display { font-family: 'Playfair Display', serif; }
+    .text-gold { color: var(--gold); }
+
+    .gold-line {
+      display: inline-block;
+      width: 60px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.8rem 3rem;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: background 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(20,20,20,0.96);
+      backdrop-filter: blur(14px);
+      padding: 1.1rem 3rem;
+      border-bottom: 1px solid rgba(212,175,55,0.1);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem; letter-spacing: 0.08em; color: var(--gold);
+    }
+    .nav-logo span {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-weight: 300; color: #888; font-size: 0.82rem;
+      display: block; letter-spacing: 0.35em; text-transform: uppercase; margin-top: -3px;
+    }
+    .nav-links a {
+      font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: #888; text-decoration: none; margin-left: 2.5rem; transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative; height: 100vh; min-height: 700px;
+      display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(8,8,8,0.55) 0%, rgba(8,8,8,0.25) 50%, rgba(8,8,8,0.75) 100%),
+        url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=80') center/cover no-repeat;
+      transform: scale(1.06);
+      animation: heroZoom 12s ease-out forwards;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1.06); }
+      to   { transform: scale(1.0);  }
+    }
+    .hero-grain {
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      opacity: 0.5; pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 2; padding: 2rem; }
+
+    .hero-eyebrow {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 1.05rem; color: var(--gold); letter-spacing: 0.45em; text-transform: uppercase;
+      opacity: 0; animation: fadeUp 0.9s 0.4s ease forwards;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8.5vw, 7.5rem); font-weight: 500; line-height: 1.04; color: #fff;
+      margin: 1rem 0 1.5rem;
+      opacity: 0; animation: fadeUp 1s 0.7s ease forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      font-size: 0.78rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(232,224,208,0.55); margin-bottom: 3rem;
+      opacity: 0; animation: fadeUp 0.9s 1s ease forwards;
+    }
+
+    .btn-primary {
+      display: inline-block; padding: 1rem 3rem;
+      border: 1px solid var(--gold); color: var(--anthracite); background: var(--gold);
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase;
+      text-decoration: none; cursor: pointer; position: relative; overflow: hidden;
+      transition: color 0.35s;
+      opacity: 0; animation: fadeUp 1s 1.2s ease forwards;
+    }
+    .btn-primary::before {
+      content: ''; position: absolute; inset: 0; background: var(--anthracite);
+      transform: translateX(-101%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .btn-primary:hover { color: var(--gold); }
+    .btn-primary:hover::before { transform: translateX(0); }
+    .btn-primary span { position: relative; z-index: 1; }
+
+    .btn-outline {
+      display: inline-block; padding: 1rem 2.5rem;
+      border: 1px solid rgba(212,175,55,0.35); color: var(--gold); background: transparent;
+      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase;
+      text-decoration: none; cursor: pointer; transition: all 0.3s; margin-left: 1rem;
+      opacity: 0; animation: fadeUp 1s 1.3s ease forwards;
+    }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(212,175,55,0.07); }
+
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      opacity: 0; animation: fadeUp 1s 1.8s ease forwards;
+    }
+    .hero-scroll span { font-size: 0.58rem; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+    .scroll-line {
+      width: 1px; height: 52px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 1.8s 2.2s ease infinite;
+    }
+    @keyframes scrollPulse {
+      0%   { opacity: 0; transform: scaleY(0); transform-origin: top; }
+      50%  { opacity: 1; transform: scaleY(1); transform-origin: top; }
+      100% { opacity: 0; transform: scaleY(1); transform-origin: bottom; }
+    }
+
+    /* ─── Section Base ─── */
+    section { padding: 7rem 0; }
+    .section-tag {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 1rem; color: var(--gold); letter-spacing: 0.38em; text-transform: uppercase;
+      display: block; margin-bottom: 0.7rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 500; color: #fff; line-height: 1.15;
+    }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ─── Scroll Reveal ─── */
+    .reveal { opacity: 0; transform: translateY(38px); transition: opacity 0.85s ease, transform 0.85s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ─── MENU ─── */
+    #menu { background: var(--anthracite-mid); }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+      gap: 1.5rem; margin-top: 3.5rem;
+    }
+    .menu-card {
+      background: var(--anthracite-light);
+      border: 1px solid rgba(212,175,55,0.09);
+      overflow: hidden; cursor: pointer;
+      transition: transform 0.42s cubic-bezier(0.4,0,0.2,1), box-shadow 0.42s, border-color 0.42s;
+    }
+    .menu-card:hover {
+      transform: translateY(-9px) scale(1.012);
+      box-shadow: 0 32px 64px rgba(0,0,0,0.55), 0 0 0 1px rgba(212,175,55,0.3);
+      border-color: rgba(212,175,55,0.3);
+    }
+    .menu-card-img-wrap { overflow: hidden; height: 220px; }
+    .menu-card-img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.65s ease; filter: brightness(0.82) saturate(0.88);
+    }
+    .menu-card:hover .menu-card-img { transform: scale(1.07); filter: brightness(0.95) saturate(1.05); }
+    .menu-card-body { padding: 1.5rem; }
+    .menu-card-category {
+      font-size: 0.58rem; letter-spacing: 0.38em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem;
+    }
+    .menu-card-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #fff; margin-bottom: 0.6rem; }
+    .menu-card-desc { font-size: 0.8rem; color: #777; line-height: 1.75; margin-bottom: 1.25rem; }
+    .menu-card-footer {
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem;
+    }
+    .menu-card-price {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 500; color: var(--gold);
+    }
+    .menu-tag {
+      font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 0.28rem 0.7rem; border: 1px solid rgba(212,175,55,0.2); color: #666;
+    }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--anthracite); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-img { width: 100%; height: 580px; object-fit: cover; display: block; filter: brightness(0.82) saturate(0.78); }
+    .about-img-frame {
+      position: absolute; top: -22px; left: -22px; right: 22px; bottom: 22px;
+      border: 1px solid rgba(212,175,55,0.18); pointer-events: none; z-index: -1;
+    }
+    .about-badge {
+      position: absolute; bottom: -1.8rem; right: -1.8rem;
+      background: var(--gold); color: var(--anthracite);
+      width: 115px; height: 115px; border-radius: 50%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+    }
+    .about-badge strong { font-family: 'Playfair Display', serif; font-size: 2.1rem; line-height: 1; }
+    .about-badge span { font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 2px; }
+    .about-text {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 300;
+      line-height: 1.9; color: #9a9085; margin-top: 1.5rem;
+    }
+    .about-text em { font-style: italic; color: #ccc; }
+    .about-signature { margin-top: 2.5rem; display: flex; align-items: center; gap: 1rem; }
+    .about-signature-line { width: 40px; height: 1px; background: var(--gold); }
+    .about-signature-name { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: var(--gold); }
+
+    /* ─── STATS ─── */
+    #stats { background: var(--anthracite-mid); padding: 4.5rem 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; text-align: center; }
+    .stat-item {
+      padding: 1.5rem 2rem;
+      border-right: 1px solid rgba(212,175,55,0.1);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 3.8rem; font-weight: 400; color: var(--gold); line-height: 1; }
+    .stat-label { font-size: 0.65rem; letter-spacing: 0.32em; text-transform: uppercase; color: #555; margin-top: 0.5rem; }
+
+    /* ─── RESERVATION ─── */
+    #reservation {
+      background:
+        linear-gradient(rgba(8,8,8,0.84), rgba(8,8,8,0.84)),
+        url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1600&q=80') center/cover no-repeat fixed;
+    }
+    .reservation-wrap { max-width: 660px; margin: 0 auto; text-align: center; }
+    .glass-form {
+      background: rgba(255,255,255,0.035);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,0.07); border-radius: 1px;
+      padding: 3rem; margin-top: 3rem;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.45rem; }
+    .form-group label { font-size: 0.58rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); }
+    .form-group input, .form-group select {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(212,175,55,0.14); border-radius: 1px;
+      padding: 0.85rem 1rem; color: #e8e0d0;
+      font-family: 'Inter', sans-serif; font-size: 0.85rem; outline: none;
+      transition: border-color 0.3s, background 0.3s; width: 100%;
+    }
+    .form-group input::placeholder { color: #484848; }
+    .form-group input:focus, .form-group select:focus {
+      border-color: rgba(212,175,55,0.45); background: rgba(212,175,55,0.03);
+    }
+    .form-group select option { background: #1e1e1e; }
+    .form-note { font-size: 0.72rem; color: #484848; margin-top: 1.5rem; letter-spacing: 0.04em; line-height: 1.6; }
+    .btn-submit {
+      width: 100%; padding: 1rem; border: none; cursor: pointer;
+      background: var(--gold); color: var(--anthracite);
+      font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      position: relative; overflow: hidden; transition: color 0.35s;
+    }
+    .btn-submit::before {
+      content: ''; position: absolute; inset: 0; background: var(--anthracite);
+      transform: translateX(-101%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .btn-submit:hover { color: var(--gold); }
+    .btn-submit:hover::before { transform: translateX(0); }
+    .btn-submit span { position: relative; z-index: 1; }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--anthracite); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; margin-top: 4rem; }
+    .contact-card { border-top: 1px solid rgba(212,175,55,0.18); padding-top: 2rem; }
+    .contact-card-icon { font-size: 1.4rem; margin-bottom: 1rem; }
+    .contact-card-title {
+      font-size: 0.6rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+    }
+    .contact-card p { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: #7a7068; line-height: 1.85; }
+    .contact-card a { color: #7a7068; text-decoration: none; transition: color 0.3s; }
+    .contact-card a:hover { color: var(--gold); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #111; border-top: 1px solid rgba(212,175,55,0.08);
+      padding: 3rem 2rem; text-align: center;
+    }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--gold); letter-spacing: 0.1em; }
+    .footer-links { display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0; }
+    .footer-links a {
+      font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: #444; text-decoration: none; transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: #383838; margin-top: 0.5rem; }
+
+    /* ─── Keyframes ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-img { height: 380px; }
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .contact-grid { grid-template-columns: 1fr 1fr; }
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 620px) {
+      .form-row { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .glass-form { padding: 2rem 1.5rem; }
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════ NAV ══════ -->
+<nav id="navbar">
+  <div class="nav-logo">
+    Lucht
+    <span>Gastronomy</span>
+  </div>
+  <div class="nav-links">
+    <a href="#menu">Menü</a>
+    <a href="#about">Hikayemiz</a>
+    <a href="#reservation">Rezervasyon</a>
+    <a href="#contact">İletişim</a>
+  </div>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Bursa · 2018'den Beri</span>
+    <h1 class="hero-title">
+      Lezzetin<br><em>Modern</em> Yüzü
+    </h1>
+    <p class="hero-sub">Anadolu'nun Özü, Dünya'nın Ruhu</p>
+    <a href="#reservation" class="btn-primary"><span>Rezervasyon Yap</span></a>
+    <a href="#menu" class="btn-outline">Menüyü Keşfet</a>
+  </div>
+  <div class="hero-scroll">
+    <span>Keşfet</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══════ MENU ══════ -->
+<section id="menu">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <span class="section-tag">Öne Çıkan Lezzetler</span>
+      <h2 class="section-title">Şefin Seçkisi</h2>
+      <div style="margin-top:1.2rem;display:flex;justify-content:center;">
+        <div class="gold-line"></div>
+      </div>
+    </div>
+
+    <div class="menu-grid">
+
+      <div class="menu-card reveal reveal-delay-1">
+        <div class="menu-card-img-wrap">
+          <img class="menu-card-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Kuzugöbeği Risotto" loading="lazy"/>
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-category">Ana Yemek</div>
+          <h3 class="menu-card-title">Kuzugöbeği Risotto</h3>
+          <p class="menu-card-desc">Kurutulmuş kuzugöbeği mantarı, parmesan espuma, taze kekik yağı ve kavrulmuş fındık.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-price">₺485</span>
+            <span class="menu-tag">Şef Önerisi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card reveal reveal-delay-2">
+        <div class="menu-card-img-wrap">
+          <img class="menu-card-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80" alt="Wagyu Kaburga" loading="lazy"/>
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-category">Izgara</div>
+          <h3 class="menu-card-title">Wagyu Kaburga</h3>
+          <p class="menu-card-desc">72 saat sous-vide pişirilmiş, demi-glace sos, yer elması püresi ve mevsim otları.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-price">₺980</span>
+            <span class="menu-tag">İmza Lezzet</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card reveal reveal-delay-3">
+        <div class="menu-card-img-wrap">
+          <img class="menu-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80" alt="Levrek Ceviche" loading="lazy"/>
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-category">Deniz Ürünleri</div>
+          <h3 class="menu-card-title">Levrek Ceviche</h3>
+          <p class="menu-card-desc">Taze levrek, yuzu-limon vinaigrette, avokado mus ve nar taneleri ile sunulur.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-price">₺390</span>
+            <span class="menu-tag">Mevsimlik</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card reveal reveal-delay-4">
+        <div class="menu-card-img-wrap">
+          <img class="menu-card-img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80" alt="Fondü Sphere" loading="lazy"/>
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-category">Tatlı</div>
+          <h3 class="menu-card-title">Fondü Sphere</h3>
+          <p class="menu-card-desc">%70 bitter çikolata küre, sıcak caramel ile eritilir; fıstık pralin ve vanilya dondurması.</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-price">₺260</span>
+            <span class="menu-tag">En Çok Sevilen</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════ ABOUT ══════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <div class="about-img-frame"></div>
+        <img class="about-img" src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=800&q=80" alt="Şef" loading="lazy"/>
+        <div class="about-badge">
+          <strong>15+</strong>
+          <span>Yıllık Deneyim</span>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <span class="section-tag">Hakkımızda</span>
+        <h2 class="section-title">Mutfak Bir<br>Manifestodur</h2>
+        <div style="margin-top:1rem">
+          <div class="gold-line"></div>
+        </div>
+        <p class="about-text">
+          Her tabak, <em>bir anın kristalize halidir.</em> Bursa'nın topraklarından,
+          Anadolu'nun binlerce yıllık lezzet mirasından beslenerek oluşturduk Lucht'u.
+          Bize göre mutfak; kimyanın şiire, ısının sanata dönüştüğü o
+          <em>eşsiz kesişme noktasıdır.</em>
+        </p>
+        <p class="about-text" style="margin-top:1rem">
+          Yerel üreticilerle kurduğumuz derin ilişki, her mevsim değişen menümüze
+          güç verir. Sizi soframıza davet etmek, bir yemekten çok
+          <em>bir anı birlikte yaşamak</em> anlamına gelir.
+        </p>
+        <div class="about-signature">
+          <div class="about-signature-line"></div>
+          <span class="about-signature-name">Ahmet Lucht, Baş Şef &amp; Kurucu</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ STATS ══════ -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-num">12</div>
+        <div class="stat-label">Uluslararası Ödül</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-num">48</div>
+        <div class="stat-label">Mevsimlik Tabak</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Yıl Bursa'da</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Michelin Yıldızı</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ RESERVATION ══════ -->
+<section id="reservation">
+  <div class="container">
+    <div class="reservation-wrap">
+      <div class="reveal">
+        <span class="section-tag">Masa Ayırt</span>
+        <h2 class="section-title">Hızlı Rezervasyon</h2>
+        <p style="margin-top:1rem;color:#555;font-size:0.82rem;letter-spacing:0.04em;line-height:1.8;">
+          Özel anlarınız için masanızı şimdiden ayırtın.<br>
+          24 saat içinde onay mesajı alacaksınız.
+        </p>
+      </div>
+
+      <div class="glass-form reveal reveal-delay-1">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Ad Soyad</label>
+            <input type="text" id="name" placeholder="Adınız ve soyadınız"/>
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefon</label>
+            <input type="tel" id="phone" placeholder="+90 500 000 00 00"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="date">Tarih</label>
+            <input type="date" id="date"/>
+          </div>
+          <div class="form-group">
+            <label for="time">Saat</label>
+            <input type="time" id="time"/>
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:1.75rem">
+          <label for="guests">Kişi Sayısı</label>
+          <select id="guests">
+            <option value="">Kişi sayısı seçin</option>
+            <option>1 Kişi</option>
+            <option>2 Kişi</option>
+            <option>3 Kişi</option>
+            <option>4 Kişi</option>
+            <option>5–6 Kişi</option>
+            <option>7–10 Kişi (Özel Salon)</option>
+            <option>10+ Kişi (Etkinlik)</option>
+          </select>
+        </div>
+        <button class="btn-submit" onclick="handleReservation()">
+          <span>Rezervasyonu Tamamla</span>
+        </button>
+        <p class="form-note">* Talebiniz 24 saat içinde e-posta veya telefon ile onaylanacaktır.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ CONTACT ══════ -->
+<section id="contact">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <span class="section-tag">Bize Ulaşın</span>
+      <h2 class="section-title">İletişim &amp; Konum</h2>
+      <div style="margin-top:1.2rem;display:flex;justify-content:center;">
+        <div class="gold-line"></div>
+      </div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card reveal reveal-delay-1">
+        <div class="contact-card-icon">📍</div>
+        <div class="contact-card-title">Adres</div>
+        <p>
+          Nilüfer, Özlüce Mah.<br>
+          Beşevler Cad. No: 42<br>
+          Bursa, Türkiye 16110
+        </p>
+      </div>
+      <div class="contact-card reveal reveal-delay-2">
+        <div class="contact-card-icon">🕐</div>
+        <div class="contact-card-title">Çalışma Saatleri</div>
+        <p>
+          Salı – Cuma<br>
+          12:00–15:00 &nbsp;·&nbsp; 19:00–23:00<br><br>
+          Cumartesi – Pazar<br>
+          12:00 – 23:00 (Kesintisiz)<br><br>
+          <span style="color:#484848;font-size:0.9rem;">Pazartesi kapalı</span>
+        </p>
+      </div>
+      <div class="contact-card reveal reveal-delay-3">
+        <div class="contact-card-icon">✉️</div>
+        <div class="contact-card-title">İletişim</div>
+        <p>
+          <a href="tel:+902242220042">+90 (224) 222 00 42</a><br><br>
+          <a href="mailto:rezervasyon@luchtgastronomy.com">rezervasyon@luchtgastronomy.com</a><br><br>
+          <a href="#">Instagram &nbsp;·&nbsp; TripAdvisor</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <div class="footer-logo">Lucht Gastronomy</div>
+  <div class="footer-links">
+    <a href="#menu">Menü</a>
+    <a href="#about">Hikayemiz</a>
+    <a href="#reservation">Rezervasyon</a>
+    <a href="#contact">İletişim</a>
+    <a href="#">Gizlilik Politikası</a>
+  </div>
+  <div style="margin:1.5rem auto;width:55px;height:1px;background:linear-gradient(90deg,transparent,#2e2e2e,transparent);"></div>
+  <p class="footer-copy">© 2025 Lucht Gastronomy — Tüm Hakları Saklıdır · Bursa, Türkiye</p>
+</footer>
+
+<script>
+  /* Navbar scroll */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  /* Scroll reveal */
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+  revealEls.forEach(el => io.observe(el));
+
+  /* Smooth scroll */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) t.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  /* Reservation */
+  function handleReservation() {
+    const name   = document.getElementById('name').value.trim();
+    const date   = document.getElementById('date').value;
+    const guests = document.getElementById('guests').value;
+    if (!name || !date || !guests) {
+      alert('Lütfen tüm alanları doldurunuz.');
+      return;
+    }
+    const d = new Date(date).toLocaleDateString('tr-TR', { day:'numeric', month:'long', year:'numeric' });
+    alert(`Teşekkürler, ${name}!\n\nRezervasyonunuz alındı:\n📅 ${d} · ${guests}\n\nEn kısa sürede sizinle iletişime geçeceğiz.`);
+  }
+</script>
+
+</body>
+</html>
