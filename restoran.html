@@ -41,7 +41,6 @@
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
 
-    /* ─── NAV ─── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 1.8rem 3rem;
@@ -69,7 +68,6 @@
     }
     .nav-links a:hover { color: var(--gold); }
 
-    /* ─── HERO ─── */
     #hero {
       position: relative; height: 100vh; min-height: 700px;
       display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden;
@@ -153,7 +151,6 @@
       100% { opacity: 0; transform: scaleY(1); transform-origin: bottom; }
     }
 
-    /* ─── Section Base ─── */
     section { padding: 7rem 0; }
     .section-tag {
       font-family: 'Cormorant Garamond', serif; font-style: italic;
@@ -166,7 +163,6 @@
     }
     .container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
 
-    /* ─── Scroll Reveal ─── */
     .reveal { opacity: 0; transform: translateY(38px); transition: opacity 0.85s ease, transform 0.85s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.1s; }
@@ -174,7 +170,6 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
 
-    /* ─── MENU ─── */
     #menu { background: var(--anthracite-mid); }
     .menu-grid {
       display: grid;
@@ -216,7 +211,6 @@
       padding: 0.28rem 0.7rem; border: 1px solid rgba(212,175,55,0.2); color: #666;
     }
 
-    /* ─── ABOUT ─── */
     #about { background: var(--anthracite); }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
     .about-img-wrap { position: relative; }
@@ -242,7 +236,6 @@
     .about-signature-line { width: 40px; height: 1px; background: var(--gold); }
     .about-signature-name { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: var(--gold); }
 
-    /* ─── STATS ─── */
     #stats { background: var(--anthracite-mid); padding: 4.5rem 0; }
     .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; text-align: center; }
     .stat-item {
@@ -253,7 +246,6 @@
     .stat-num { font-family: 'Playfair Display', serif; font-size: 3.8rem; font-weight: 400; color: var(--gold); line-height: 1; }
     .stat-label { font-size: 0.65rem; letter-spacing: 0.32em; text-transform: uppercase; color: #555; margin-top: 0.5rem; }
 
-    /* ─── RESERVATION ─── */
     #reservation {
       background:
         linear-gradient(rgba(8,8,8,0.84), rgba(8,8,8,0.84)),
@@ -297,7 +289,6 @@
     .btn-submit:hover::before { transform: translateX(0); }
     .btn-submit span { position: relative; z-index: 1; }
 
-    /* ─── CONTACT ─── */
     #contact { background: var(--anthracite); }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; margin-top: 4rem; }
     .contact-card { border-top: 1px solid rgba(212,175,55,0.18); padding-top: 2rem; }
@@ -309,7 +300,6 @@
     .contact-card a { color: #7a7068; text-decoration: none; transition: color 0.3s; }
     .contact-card a:hover { color: var(--gold); }
 
-    /* ─── FOOTER ─── */
     footer {
       background: #111; border-top: 1px solid rgba(212,175,55,0.08);
       padding: 3rem 2rem; text-align: center;
@@ -323,13 +313,11 @@
     .footer-links a:hover { color: var(--gold); }
     .footer-copy { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: #383838; margin-top: 0.5rem; }
 
-    /* ─── Keyframes ─── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(28px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ─── Responsive ─── */
     @media (max-width: 900px) {
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .about-img { height: 380px; }
@@ -348,7 +336,6 @@
 </head>
 <body>
 
-<!-- ══════ NAV ══════ -->
 <nav id="navbar">
   <div class="nav-logo">
     Lucht
@@ -362,7 +349,6 @@
   </div>
 </nav>
 
-<!-- ══════ HERO ══════ -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grain"></div>
@@ -381,7 +367,6 @@
   </div>
 </section>
 
-<!-- ══════ MENU ══════ -->
 <section id="menu">
   <div class="container">
     <div class="reveal" style="text-align:center">
@@ -458,7 +443,6 @@
   </div>
 </section>
 
-<!-- ══════ ABOUT ══════ -->
 <section id="about">
   <div class="container">
     <div class="about-grid">
@@ -496,7 +480,6 @@
   </div>
 </section>
 
-<!-- ══════ STATS ══════ -->
 <section id="stats">
   <div class="container">
     <div class="stats-grid">
@@ -520,7 +503,6 @@
   </div>
 </section>
 
-<!-- ══════ RESERVATION ══════ -->
 <section id="reservation">
   <div class="container">
     <div class="reservation-wrap">
@@ -576,7 +558,6 @@
   </div>
 </section>
 
-<!-- ══════ CONTACT ══════ -->
 <section id="contact">
   <div class="container">
     <div class="reveal" style="text-align:center">
@@ -592,8 +573,8 @@
         <div class="contact-card-title">Adres</div>
         <p>
           Nilüfer, Özlüce Mah.<br>
-          Beşevler Cad. No: 42<br>
-          Bursa, Türkiye 16110
+          Beşevler Cad. No: 00<br>
+          Bursa, Türkiye 16000
         </p>
       </div>
       <div class="contact-card reveal reveal-delay-2">
@@ -611,7 +592,7 @@
         <div class="contact-card-icon">✉️</div>
         <div class="contact-card-title">İletişim</div>
         <p>
-          <a href="tel:+902242220042">+90 (224) 222 00 42</a><br><br>
+          <a href="tel:+902242220042">+90 (224) 000 00 00</a><br><br>
           <a href="mailto:rezervasyon@luchtgastronomy.com">rezervasyon@luchtgastronomy.com</a><br><br>
           <a href="#">Instagram &nbsp;·&nbsp; TripAdvisor</a>
         </p>
@@ -620,7 +601,6 @@
   </div>
 </section>
 
-<!-- ══════ FOOTER ══════ -->
 <footer>
   <div class="footer-logo">Lucht Gastronomy</div>
   <div class="footer-links">
@@ -631,24 +611,22 @@
     <a href="#">Gizlilik Politikası</a>
   </div>
   <div style="margin:1.5rem auto;width:55px;height:1px;background:linear-gradient(90deg,transparent,#2e2e2e,transparent);"></div>
-  <p class="footer-copy">© 2025 Lucht Gastronomy — Tüm Hakları Saklıdır · Bursa, Türkiye</p>
+  <p class="footer-copy">© 2026 Lucht Gastronomy — Tüm Hakları Saklıdır · Bursa, Türkiye</p>
 </footer>
 
 <script>
-  /* Navbar scroll */
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 60);
   });
 
-  /* Scroll reveal */
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
   revealEls.forEach(el => io.observe(el));
 
-  /* Smooth scroll */
+
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
@@ -657,7 +635,6 @@
     });
   });
 
-  /* Reservation */
   function handleReservation() {
     const name   = document.getElementById('name').value.trim();
     const date   = document.getElementById('date').value;
