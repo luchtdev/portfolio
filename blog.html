@@ -45,7 +45,6 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* ── Page fade-in ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -56,7 +55,6 @@
     .delay-3 { animation-delay: 0.36s; }
     .delay-4 { animation-delay: 0.48s; }
 
-    /* ── Navigation link underline ── */
     .nav-link {
       position: relative;
       text-decoration: none;
@@ -78,7 +76,6 @@
     .nav-link:hover { color: #1a1a1a; }
     .nav-link:hover::after { width: 100%; }
 
-    /* ── Article card ── */
     .article-card {
       border-top: 1px solid #e8e8e6;
       padding: 2.5rem 0;
@@ -96,7 +93,6 @@
     }
     .article-card:hover .article-title { color: #555550; }
 
-    /* ── Newsletter input ── */
     .newsletter-input {
       border: 1px solid #e8e8e6;
       outline: none;
@@ -126,8 +122,7 @@
       white-space: nowrap;
     }
     .newsletter-btn:hover { background: #333330; }
-
-    /* ── Divider ── */
+    
     .ornament {
       display: flex;
       align-items: center;
@@ -144,7 +139,6 @@
       background: #e8e8e6;
     }
 
-    /* ── Tag chip ── */
     .tag {
       display: inline-block;
       font-size: 0.6875rem;
@@ -154,17 +148,14 @@
       font-weight: 400;
     }
 
-    /* ── Reading time dot ── */
     .meta-dot { color: #c8c8c4; }
   </style>
 </head>
 
 <body class="min-h-screen">
-
-  <!-- ════════════════════════ HEADER ════════════════════════ -->
+  
   <header class="fade-up w-full px-6 sm:px-12 lg:px-20 pt-10 pb-8 flex items-center justify-between max-w-4xl mx-auto">
 
-    <!-- Logo -->
     <a href="#" class="group flex items-center gap-2.5" style="text-decoration:none">
       <span style="
         display:inline-block;
@@ -183,7 +174,6 @@
       ">Lucht</span>
     </a>
 
-    <!-- Nav -->
     <nav class="flex items-center gap-8">
       <a href="#about" class="nav-link">Hakkımda</a>
       <a href="#archive" class="nav-link">Arşiv</a>
@@ -191,12 +181,10 @@
 
   </header>
 
-  <!-- ════════════════════════ HERO RULE ════════════════════════ -->
   <div class="max-w-4xl mx-auto px-6 sm:px-12 lg:px-20">
     <hr style="border:none; border-top:1px solid #e8e8e6; margin:0;" />
   </div>
 
-  <!-- ════════════════════════ AUTHOR BIO ════════════════════════ -->
   <section id="about" class="fade-up delay-1 max-w-4xl mx-auto px-6 sm:px-12 lg:px-20 pt-20 pb-16">
 
     <p class="tag mb-6">Yazar Hakkında</p>
@@ -235,7 +223,6 @@
       </p>
     </div>
 
-    <!-- Stats row -->
     <div class="flex items-center gap-8 mt-10" style="padding-top:1.5rem; border-top:1px solid #e8e8e6;">
       <div>
         <div style="font-family:'Lora',serif; font-size:1.5rem; font-weight:500; color:#1a1a1a;">47</div>
@@ -255,14 +242,12 @@
 
   </section>
 
-  <!-- ════════════════════════ ARTICLE LIST ════════════════════════ -->
   <section id="archive" class="fade-up delay-2 max-w-4xl mx-auto px-6 sm:px-12 lg:px-20 pb-20">
 
     <div class="ornament mb-0" style="margin-bottom:0;">
       <span style="font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase; color:#c8c8c4;">Son Yazılar</span>
     </div>
-
-    <!-- Article 1 -->
+    
     <article class="article-card">
       <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
         <div style="flex:1;">
@@ -284,7 +269,6 @@
       </div>
     </article>
 
-    <!-- Article 2 -->
     <article class="article-card">
       <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
         <div style="flex:1;">
@@ -306,7 +290,6 @@
       </div>
     </article>
 
-    <!-- Article 3 -->
     <article class="article-card">
       <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
         <div style="flex:1;">
@@ -328,21 +311,19 @@
       </div>
     </article>
 
-    <!-- All posts link -->
     <div class="mt-8">
       <a href="#" class="nav-link" style="font-size:0.8125rem;">Tüm yazıları gör →</a>
     </div>
 
   </section>
 
-  <!-- ════════════════════════ NEWSLETTER ════════════════════════ -->
   <section class="fade-up delay-3 max-w-4xl mx-auto px-6 sm:px-12 lg:px-20 pb-24">
 
     <div style="
       background:#f7f7f5;
       padding:3.5rem clamp(2rem, 5vw, 4rem);
     ">
-      <!-- Header -->
+    
       <div class="mb-8">
         <p class="tag mb-4">Bülten</p>
         <h2 style="
@@ -360,7 +341,6 @@
         </p>
       </div>
 
-      <!-- Form -->
       <div class="flex flex-col sm:flex-row gap-0 max-w-lg">
         <input
           type="email"
@@ -373,7 +353,6 @@
         </button>
       </div>
 
-      <!-- Trust line -->
       <p style="font-size:0.775rem; color:#b0b0aa; margin-top:1rem; letter-spacing:0.03em;">
         2.400+ okuyucuya katılın &nbsp;·&nbsp; İstediğiniz zaman ayrılın
       </p>
@@ -381,7 +360,6 @@
 
   </section>
 
-  <!-- ════════════════════════ FOOTER ════════════════════════ -->
   <footer class="fade-up delay-4 max-w-4xl mx-auto px-6 sm:px-12 lg:px-20 pb-12">
     <hr style="border:none; border-top:1px solid #e8e8e6; margin-bottom:2rem;" />
     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
