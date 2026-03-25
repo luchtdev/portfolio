@@ -1,523 +1,1044 @@
 <!DOCTYPE html>
+
 <html lang="tr">
+
 <head>
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Lucht | IT Specialist & Full-Stack Developer</title>
 
+
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <script src="https://cdn.tailwindcss.com"></script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
+
+
   <script>
+
     tailwind.config = {
+
       theme: {
+
         extend: {
+
           fontFamily: { poppins: ['Poppins', 'sans-serif'] },
+
           colors: {
+
             neon: '#00f5d4',
+
             accent: '#7c3aed',
+
             glass: 'rgba(255,255,255,0.05)',
+
           }
+
         }
+
       }
+
     }
+
   </script>
+
   <style>
+
     * { font-family: 'Poppins', sans-serif; }
+
     html { scroll-behavior: smooth; }
+
     body { background: #050510; color: #f0f0f5; overflow-x: hidden; }
+
     
+
     body::before {
+
       content: ''; position: fixed; inset: 0;
+
       background: radial-gradient(ellipse 80% 60% at 10% 20%, rgba(124,58,237,0.25) 0%, transparent 60%),
+
                   radial-gradient(ellipse 60% 50% at 85% 75%, rgba(0,245,212,0.15) 0%, transparent 55%),
+
                   radial-gradient(ellipse 50% 40% at 50% 50%, rgba(15,5,50,0.8) 0%, transparent 100%);
+
       pointer-events: none; z-index: 0;
+
     }
+
     
+
     body::after {
+
       content: ''; position: fixed; inset: 0;
+
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+
       background-size: 200px 200px; pointer-events: none; z-index: 0; opacity: 0.4;
+
     }
+
+
 
     .glass-card {
+
       background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);
+
       backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+
       box-shadow: 0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.07);
+
     }
+
+
 
     .nav-glass {
+
       background: rgba(5, 5, 16, 0.7); border-bottom: 1px solid rgba(255,255,255,0.06);
+
       backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+
     }
+
+
 
     .neon-text {
+
       color: #00f5d4; text-shadow: 0 0 20px rgba(0,245,212,0.5), 0 0 60px rgba(0,245,212,0.2);
+
     }
+
+
 
     .gradient-text {
+
       background: linear-gradient(135deg, #fff 0%, #a78bfa 50%, #00f5d4 100%);
+
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+
     }
 
+
+
     .avatar-ring {
+
       background: conic-gradient(#00f5d4, #7c3aed, #f59e0b, #00f5d4);
+
       padding: 3px; border-radius: 50%; animation: spin-slow 6s linear infinite;
+
     }
+
     @keyframes spin-slow { to { transform: rotate(360deg); } }
+
+
 
     .avatar-inner { border-radius: 50%; overflow: hidden; background: #0d0d20; }
 
+
+
     .skill-pill { background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.3); transition: all 0.3s ease; }
+
     .skill-pill:hover { background: rgba(124,58,237,0.3); border-color: rgba(0,245,212,0.5); transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,245,212,0.15); }
 
+
+
     .project-card { transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s ease; cursor: pointer; }
+
     .project-card:hover { transform: scale(1.04) translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 40px rgba(0,245,212,0.08); border-color: rgba(0,245,212,0.25) !important; }
+
     .project-card:hover .project-tag { background: rgba(0,245,212,0.15); border-color: rgba(0,245,212,0.4); }
 
+
+
     .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.18; animation: float 8s ease-in-out infinite; pointer-events: none; }
+
     @keyframes float { 0%, 100% { transform: translateY(0px) scale(1); } 50% { transform: translateY(-30px) scale(1.05); } }
 
+
+
     .nav-link { position: relative; transition: color 0.3s; }
+
     .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #7c3aed, #00f5d4); transform: scaleX(0); transition: transform 0.3s ease; border-radius: 2px; }
+
     .nav-link:hover::after { transform: scaleX(1); }
+
     .nav-link:hover { color: #00f5d4; }
 
+
+
     .social-btn { transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
+
     .social-btn:hover { background: rgba(0,245,212,0.15); border-color: rgba(0,245,212,0.4); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,245,212,0.2); color: #00f5d4; }
 
+
+
     .cta-btn { background: linear-gradient(135deg, #7c3aed, #00c9a0); position: relative; overflow: hidden; transition: all 0.3s ease; }
+
     .cta-btn::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #00c9a0, #7c3aed); opacity: 0; transition: opacity 0.3s; }
+
     .cta-btn:hover::before { opacity: 1; }
+
     .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(124,58,237,0.5); }
+
     .cta-btn span { position: relative; z-index: 1; }
 
+
+
     .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+
     .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+
 
     #mobile-menu { background: rgba(5, 5, 16, 0.97); backdrop-filter: blur(30px); }
 
+
+
     ::-webkit-scrollbar { width: 5px; }
+
     ::-webkit-scrollbar-track { background: #050510; }
+
     ::-webkit-scrollbar-thumb { background: linear-gradient(#7c3aed, #00f5d4); border-radius: 10px; }
 
+
+
     .cursor-blink { animation: blink 0.9s step-end infinite; color: #00f5d4; }
+
     @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
 
+
+
     .progress-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #7c3aed, #00f5d4); box-shadow: 0 0 12px rgba(0,245,212,0.4); width: 0; transition: width 1.4s cubic-bezier(0.4,0,0.2,1); }
+
   </style>
+
 </head>
+
 <body class="min-h-screen">
 
+
+
   <nav class="nav-glass fixed top-0 left-0 right-0 z-50">
+
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+
       <a href="#hero" class="flex items-center gap-4 group no-underline">
+
         <img src="luchtlogo.png" alt="Lucht Logo" class="w-14 h-14 object-contain filter drop-shadow-[0_0_8px_rgba(0,245,212,0.3)] group-hover:scale-110 transition-transform duration-500">
+
         <div class="flex flex-col border-l border-white/10 pl-4">
+
           <span class="font-black text-white text-xl tracking-tighter leading-none group-hover:text-neon transition-colors italic">LUCHT</span>
+
           <span class="text-[9px] text-gray-500 uppercase tracking-[0.2em] mt-1 font-medium">IT Specialist</span>
+
         </div>
+
       </a>
 
+
+
       <div class="hidden md:flex items-center gap-8">
+
         <a href="#hero"     class="nav-link text-sm text-gray-300 font-medium">Ana Sayfa</a>
+
         <a href="#skills"   class="nav-link text-sm text-gray-300 font-medium">Yetenekler</a>
+
         <a href="#projects" class="nav-link text-sm text-gray-300 font-medium">Projeler</a>
+
         <a href="#contact"  class="nav-link text-sm text-gray-300 font-medium">İletişim</a>
+
       </div>
+
+
 
       <div class="flex items-center gap-3">
+
         <a href="#contact" class="hidden sm:inline-flex cta-btn px-4 py-2 rounded-xl text-sm font-semibold text-white">
+
           <span>İletişime Geç</span>
+
         </a>
+
         <button id="burger" class="md:hidden w-9 h-9 flex flex-col items-center justify-center gap-1.5" aria-label="Menü">
+
           <span class="w-5 h-0.5 bg-gray-300 rounded transition-all duration-300" id="b1"></span>
+
           <span class="w-5 h-0.5 bg-gray-300 rounded transition-all duration-300" id="b2"></span>
+
           <span class="w-5 h-0.5 bg-gray-300 rounded transition-all duration-300" id="b3"></span>
+
         </button>
+
       </div>
+
     </div>
+
+
 
     <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 pt-2">
+
       <div class="flex flex-col gap-4">
+
         <a href="#hero"     class="mobile-link text-gray-300 font-medium py-2 border-b border-white/5">Ana Sayfa</a>
+
         <a href="#skills"   class="mobile-link text-gray-300 font-medium py-2 border-b border-white/5">Yetenekler</a>
+
         <a href="#projects" class="mobile-link text-gray-300 font-medium py-2 border-b border-white/5">Projeler</a>
+
         <a href="#contact"  class="mobile-link text-gray-300 font-medium py-2">İletişim</a>
+
         <a href="#contact"  class="cta-btn text-center py-3 rounded-xl text-sm font-semibold text-white mt-2"><span>İletişime Geç</span></a>
+
       </div>
+
     </div>
+
   </nav>
 
+
+
   <section id="hero" class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+
     <div class="orb w-96 h-96 top-10 -left-20" style="background:#7c3aed; animation-delay:0s;"></div>
+
     <div class="orb w-64 h-64 bottom-20 right-10" style="background:#00f5d4; animation-delay:3s;"></div>
+
     <div class="orb w-48 h-48 top-1/2 right-1/4" style="background:#f59e0b; animation-delay:5s;"></div>
 
+
+
     <div class="relative z-10 max-w-6xl mx-auto px-6 py-20 flex flex-col lg:flex-row items-center gap-16">
+
       <div class="flex-1 text-center lg:text-left animate__animated animate__fadeInLeft">
+
         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 text-xs font-medium text-neon border border-neon/20 bg-neon/5">
+
           <span class="w-2 h-2 rounded-full bg-neon animate-pulse"></span>
+
           Yeni Projelere Açık
+
         </div>
+
+
 
         <div class="mb-6 mt-6">
+
           <h1 class="text-5xl md:text-7xl font-black text-white mb-4 tracking-tighter">
+
             Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#7c3aed] to-[#00f5d4]">Lucht</span>
+
           </h1>
+
           <div class="text-xl md:text-2xl font-mono text-gray-400 h-8 flex items-center justify-center lg:justify-start">
+
             <span class="text-[#00f5d4] mr-2">~</span> 
+
             <span class="text-[#7c3aed] mr-2">root@lucht:</span> 
+
             <span class="mr-2 text-gray-500">$</span>
+
             <span id="typewriter" class="text-white font-semibold"></span><span class="cursor-blink">|</span>
+
           </div>
+
         </div>
+
+
 
         <p class="text-gray-400 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8 mt-6">
+
           Kullanıcı odaklı, performanslı ve estetik web deneyimleri inşa ediyorum. 
+
           Kod yazmak benim için bir sanat formudur.
+
         </p>
 
+
+
         <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+
           <a href="#projects" class="cta-btn px-7 py-3.5 rounded-2xl font-semibold text-white text-sm flex items-center gap-2">
+
             <span>Projelerimi Gör</span>
+
             <i class="fas fa-arrow-right text-xs"></i>
+
           </a>
+
         </div>
+
+
 
         <div class="flex gap-8 mt-12 justify-center lg:justify-start">
+
           <div>
+
             <p class="text-2xl font-black neon-text">50+</p>
+
             <p class="text-xs text-gray-500 mt-0.5">Proje</p>
+
           </div>
+
           <div class="w-px bg-white/10"></div>
+
           <div>
+
             <p class="text-2xl font-black neon-text">4 Yıl</p>
+
             <p class="text-xs text-gray-500 mt-0.5">Deneyim</p>
+
           </div>
+
           <div class="w-px bg-white/10"></div>
+
           <div>
+
             <p class="text-2xl font-black neon-text">30+</p>
+
             <p class="text-xs text-gray-500 mt-0.5">Müşteri</p>
+
           </div>
+
         </div>
+
       </div>
+
+
 
       <div class="flex-shrink-0 animate__animated animate__fadeInRight animate__delay-1s flex flex-col items-center gap-6">
+
         <div class="avatar-ring w-52 h-52 sm:w-64 sm:h-64">
+
           <div class="avatar-inner w-full h-full flex items-center justify-center">
+
             <div class="w-full h-full flex items-center justify-center" style="background: linear-gradient(135deg,#0d0d20,#1a0a3d)">
+
               <i class="fas fa-user-astronaut text-6xl" style="color:#a78bfa"></i>
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <div class="glass-card rounded-2xl px-5 py-3 flex items-center gap-3 animate-bounce" style="animation-duration:3s">
+
           <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(0,245,212,0.15)">
+
             <i class="fas fa-code text-sm" style="color:#00f5d4"></i>
+
           </div>
+
           <div>
+
             <p class="text-xs font-semibold text-white">Full-Stack Developer</p>
+
             <p class="text-xs text-gray-500">React · Node.js · TypeScript</p>
+
           </div>
+
         </div>
+
+
 
         <div class="glass-card rounded-2xl px-5 py-3 flex items-center gap-3" style="animation: float 5s ease-in-out 2s infinite;">
+
           <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(124,58,237,0.2)">
+
             <i class="fas fa-star text-sm" style="color:#a78bfa"></i>
+
           </div>
+
           <div>
+
             <p class="text-xs font-semibold text-white">⭐⭐⭐⭐⭐ Müşteri Memnuniyeti</p>
+
             <p class="text-xs text-gray-500">30+ Başarılı Proje</p>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
+
+
 
     <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce z-10">
+
       <span class="text-xs text-gray-600">Aşağı kaydır</span>
+
       <i class="fas fa-chevron-down text-neon text-sm"></i>
+
     </div>
+
   </section>
+
+
 
   <section id="skills" class="relative py-24 z-10">
+
     <div class="max-w-6xl mx-auto px-6">
+
       <div class="text-center mb-16 fade-up">
+
         <span class="text-xs font-semibold tracking-widest uppercase text-neon mb-3 block">Neler Biliyorum</span>
+
         <h2 class="text-3xl sm:text-4xl font-black text-white">Yetenekler & <span class="gradient-text">Teknolojiler</span></h2>
+
         <p class="text-gray-400 mt-3 text-sm max-w-md mx-auto">Modern web geliştirme araçlarında uzmanlaşmış, sürekli öğrenen bir geliştirici.</p>
+
       </div>
+
+
 
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-16 fade-up">
+
         <div class="skill-pill rounded-2xl p-4 flex items-center gap-3">
+
           <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(97,218,251,0.1)">
+
             <i class="fab fa-react text-xl" style="color:#61dafb"></i>
+
           </div>
+
           <div><p class="font-semibold text-sm text-white">React/Next.js</p><p class="text-xs text-gray-500">Frontend</p></div>
+
         </div>
+
         <div class="skill-pill rounded-2xl p-4 flex items-center gap-3">
+
           <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(56,189,248,0.1)">
+
             <i class="fab fa-css3-alt text-xl" style="color:#38bdf8"></i>
+
           </div>
+
           <div><p class="font-semibold text-sm text-white">Tailwind</p><p class="text-xs text-gray-500">CSS Framework</p></div>
+
         </div>
+
         <div class="skill-pill rounded-2xl p-4 flex items-center gap-3">
+
           <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(74,222,128,0.1)">
+
             <i class="fab fa-node-js text-xl" style="color:#4ade80"></i>
+
           </div>
+
           <div><p class="font-semibold text-sm text-white">Node.js</p><p class="text-xs text-gray-500">Backend</p></div>
+
         </div>
+
         <div class="skill-pill rounded-2xl p-4 flex items-center gap-3">
+
           <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(250,204,21,0.1)">
+
             <i class="fab fa-js text-xl" style="color:#fbbf24"></i>
+
           </div>
+
           <div><p class="font-semibold text-sm text-white">TypeScript</p><p class="text-xs text-gray-500">Language</p></div>
+
         </div>
+
         <div class="skill-pill rounded-2xl p-4 flex items-center gap-3">
+
           <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(255,100,50,0.1)">
+
             <i class="fab fa-git-alt text-xl" style="color:#ff6432"></i>
+
           </div>
+
           <div><p class="font-semibold text-sm text-white">Git</p><p class="text-xs text-gray-500">Version Control</p></div>
+
         </div>
+
         <div class="skill-pill rounded-2xl p-4 flex items-center gap-3">
+
           <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(167,139,250,0.1)">
+
             <i class="fas fa-database text-xl" style="color:#a78bfa"></i>
+
           </div>
+
           <div><p class="font-semibold text-sm text-white">MongoDB</p><p class="text-xs text-gray-500">Database</p></div>
+
         </div>
+
         <div class="skill-pill rounded-2xl p-4 flex items-center gap-3">
+
           <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(34,211,238,0.1)">
+
             <i class="fab fa-docker text-xl" style="color:#22d3ee"></i>
+
           </div>
+
           <div><p class="font-semibold text-sm text-white">Docker</p><p class="text-xs text-gray-500">DevOps</p></div>
+
         </div>
+
         <div class="skill-pill rounded-2xl p-4 flex items-center gap-3">
+
           <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(251,146,60,0.1)">
+
             <i class="fas fa-fire text-xl" style="color:#fb923c"></i>
+
           </div>
+
           <div><p class="font-semibold text-sm text-white">Firebase</p><p class="text-xs text-gray-500">Backend</p></div>
+
         </div>
+
       </div>
+
+
 
       <div class="grid sm:grid-cols-2 gap-6 fade-up">
-        <div class="glass-card rounded-2xl p-6">
-          <div class="space-y-5">
-            <div>
-              <div class="flex justify-between mb-2">
-                <span class="text-sm font-semibold text-white">React / Next.js</span>
-                <span class="text-xs text-neon font-bold">92%</span>
-              </div>
-              <div class="h-1.5 rounded-full bg-white/5 overflow-hidden">
-                <div class="progress-fill" data-width="92%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between mb-2">
-                <span class="text-sm font-semibold text-white">Node.js / Express</span>
-                <span class="text-xs text-neon font-bold">85%</span>
-              </div>
-              <div class="h-1.5 rounded-full bg-white/5 overflow-hidden">
-                <div class="progress-fill" data-width="85%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between mb-2">
-                <span class="text-sm font-semibold text-white">TypeScript</span>
-                <span class="text-xs text-neon font-bold">88%</span>
-              </div>
-              <div class="h-1.5 rounded-full bg-white/5 overflow-hidden">
-                <div class="progress-fill" data-width="88%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <div class="glass-card rounded-2xl p-6">
+
           <div class="space-y-5">
+
             <div>
+
               <div class="flex justify-between mb-2">
-                <span class="text-sm font-semibold text-white">UI/UX Tasarım</span>
-                <span class="text-xs text-neon font-bold">80%</span>
+
+                <span class="text-sm font-semibold text-white">React / Next.js</span>
+
+                <span class="text-xs text-neon font-bold">92%</span>
+
               </div>
+
               <div class="h-1.5 rounded-full bg-white/5 overflow-hidden">
-                <div class="progress-fill" data-width="80%"></div>
+
+                <div class="progress-fill" data-width="92%"></div>
+
               </div>
+
             </div>
+
             <div>
+
               <div class="flex justify-between mb-2">
-                <span class="text-sm font-semibold text-white">Database / SQL</span>
-                <span class="text-xs text-neon font-bold">75%</span>
+
+                <span class="text-sm font-semibold text-white">Node.js / Express</span>
+
+                <span class="text-xs text-neon font-bold">85%</span>
+
               </div>
+
               <div class="h-1.5 rounded-full bg-white/5 overflow-hidden">
-                <div class="progress-fill" data-width="75%"></div>
+
+                <div class="progress-fill" data-width="85%"></div>
+
               </div>
+
             </div>
+
             <div>
+
               <div class="flex justify-between mb-2">
-                <span class="text-sm font-semibold text-white">DevOps / Docker</span>
-                <span class="text-xs text-neon font-bold">70%</span>
+
+                <span class="text-sm font-semibold text-white">TypeScript</span>
+
+                <span class="text-xs text-neon font-bold">88%</span>
+
               </div>
+
               <div class="h-1.5 rounded-full bg-white/5 overflow-hidden">
-                <div class="progress-fill" data-width="70%"></div>
+
+                <div class="progress-fill" data-width="88%"></div>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
+
+
+        <div class="glass-card rounded-2xl p-6">
+
+          <div class="space-y-5">
+
+            <div>
+
+              <div class="flex justify-between mb-2">
+
+                <span class="text-sm font-semibold text-white">UI/UX Tasarım</span>
+
+                <span class="text-xs text-neon font-bold">80%</span>
+
+              </div>
+
+              <div class="h-1.5 rounded-full bg-white/5 overflow-hidden">
+
+                <div class="progress-fill" data-width="80%"></div>
+
+              </div>
+
+            </div>
+
+            <div>
+
+              <div class="flex justify-between mb-2">
+
+                <span class="text-sm font-semibold text-white">Database / SQL</span>
+
+                <span class="text-xs text-neon font-bold">75%</span>
+
+              </div>
+
+              <div class="h-1.5 rounded-full bg-white/5 overflow-hidden">
+
+                <div class="progress-fill" data-width="75%"></div>
+
+              </div>
+
+            </div>
+
+            <div>
+
+              <div class="flex justify-between mb-2">
+
+                <span class="text-sm font-semibold text-white">DevOps / Docker</span>
+
+                <span class="text-xs text-neon font-bold">70%</span>
+
+              </div>
+
+              <div class="h-1.5 rounded-full bg-white/5 overflow-hidden">
+
+                <div class="progress-fill" data-width="70%"></div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
+
     </div>
+
   </section>
+
+
 
   <section id="projects" class="relative py-24 z-10">
+
     <div class="max-w-6xl mx-auto px-6">
+
       <div class="text-center mb-16 fade-up">
+
         <span class="text-xs font-semibold tracking-widest uppercase text-neon mb-3 block">Portfolyo</span>
+
         <h2 class="text-3xl sm:text-4xl font-black text-white">Öne Çıkan <span class="gradient-text">Projeler</span></h2>
+
         <p class="text-gray-400 mt-3 text-sm max-w-md mx-auto">Her proje bir problem çözüm hikayesidir. İşte en iyi çalışmalarımdan bazıları.</p>
+
       </div>
+
+
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 fade-up">
+
         <div class="project-card glass-card rounded-3xl overflow-hidden border border-white/5">
+
           <div class="h-44 flex items-center justify-center relative overflow-hidden" style="background: linear-gradient(135deg,rgba(0,245,212,0.2),rgba(124,58,237,0.15))">
+
             <svg class="w-16 h-16 text-[#00f5d4] drop-shadow-[0_0_12px_rgba(0,245,212,0.6)] transition-transform duration-500 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+
             </svg>
+
           </div>
+
           <div class="p-6">
+
             <div class="flex flex-wrap gap-2 mb-3">
+
               <span class="project-tag px-2.5 py-1 rounded-lg text-xs font-medium border border-white/10 text-gray-400 transition-all">Next.js</span>
+
               <span class="project-tag px-2.5 py-1 rounded-lg text-xs font-medium border border-white/10 text-gray-400 transition-all">Tailwind CSS</span>
+
               <span class="project-tag px-2.5 py-1 rounded-lg text-xs font-medium border border-white/10 text-gray-400 transition-all">Network</span>
+
             </div>
+
             <h3 class="font-bold text-lg text-white mb-2">EtherScan Dashboard</h3>
+
             <p class="text-gray-400 text-sm leading-relaxed mb-4">Anlık ağ trafiğini, ping sürelerini ve sistem lokasyonlarını izleyen profesyonel kontrol paneli.</p>
+
             <div class="flex gap-3">
+
               <a href="https://github.com/luchtdev/EtherScan-Dashboard" target="_blank" class="flex-1 text-center py-2.5 rounded-xl text-xs font-semibold bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all border border-white/5">
+
                 <i class="fab fa-github mr-1.5"></i>Kod
+
               </a>
+
               <a href="#" target="_blank" class="flex-1 text-center py-2.5 rounded-xl text-xs font-semibold transition-all text-white" style="background:linear-gradient(135deg,#7c3aed,#00c9a0)">
+
                 <i class="fas fa-external-link-alt mr-1.5"></i>Demo
+
               </a>
+
             </div>
+
           </div>
+
         </div>
 
+
+
         <div class="project-card glass-card rounded-3xl overflow-hidden border border-white/5">
+
           <div class="h-44 flex items-center justify-center relative overflow-hidden" style="background: linear-gradient(135deg,rgba(124,58,237,0.3),rgba(0,245,212,0.1))">
+
             <svg class="w-16 h-16 text-[#7c3aed] drop-shadow-[0_0_12px_rgba(124,58,237,0.6)] transition-transform duration-500 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M8 2v7.5M12 2v7.5M16 2v7.5M4 10.5C4 13.5 8 15 12 15s8-1.5 8-4.5V2H4v8.5zM12 15v7"></path>
+
             </svg>
+
           </div>
+
           <div class="p-6">
+
             <div class="flex flex-wrap gap-2 mb-3">
+
               <span class="project-tag px-2.5 py-1 rounded-lg text-xs font-medium border border-white/10 text-gray-400 transition-all">HTML5</span>
+
               <span class="project-tag px-2.5 py-1 rounded-lg text-xs font-medium border border-white/10 text-gray-400 transition-all">Tailwind CSS</span>
+
             </div>
+
             <h3 class="font-bold text-lg text-white mb-2">Lucht - Lüks Restoran</h3>
+
             <p class="text-gray-400 text-sm leading-relaxed mb-4">Modern arayüz, dijital menü ve rezervasyon sistemi içeren profesyonel çözüm.</p>
+
             <div class="flex gap-3">
+
               <a href="#" class="flex-1 text-center py-2.5 rounded-xl text-xs font-semibold bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all border border-white/5">
+
                 <i class="fab fa-github mr-1.5"></i>Kod
+
               </a>
+
               <a href="restoran.html" target="_blank" class="flex-1 text-center py-2.5 rounded-xl text-xs font-semibold transition-all text-white" style="background:linear-gradient(135deg,#7c3aed,#00c9a0)">
+
                 <i class="fas fa-external-link-alt mr-1.5"></i>Demo
+
              </a>
+
             </div>
+
           </div>
+
         </div>
 
+
+
         <div class="project-card glass-card rounded-3xl overflow-hidden border border-white/5">
+
           <div class="h-44 flex items-center justify-center relative overflow-hidden" style="background: linear-gradient(135deg,rgba(0,200,180,0.2),rgba(59,130,246,0.15))">
+
             <svg class="w-16 h-16 text-[#00f5d4] drop-shadow-[0_0_12px_rgba(0,245,212,0.6)] transition-transform duration-500 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+
             </svg>
+
           </div>
+
           <div class="p-6">
+
             <div class="flex flex-wrap gap-2 mb-3">
+
               <span class="project-tag px-2.5 py-1 rounded-lg text-xs font-medium border border-white/10 text-gray-400 transition-all">Kurumsal</span>
+
               <span class="project-tag px-2.5 py-1 rounded-lg text-xs font-medium border border-white/10 text-gray-400 transition-all">Responsive</span>
+
             </div>
+
             <h3 class="font-bold text-lg text-white mb-2">Lucht - Kurumsal Hukuk</h3>
+
             <p class="text-gray-400 text-sm leading-relaxed mb-4">Avukatlar ve danışmanlar için profesyonel, güven odaklı ve randevu sistemli web çözümü.</p>
+
             <div class="flex gap-3">
+
               <a href="#" class="flex-1 text-center py-2.5 rounded-xl text-xs font-semibold bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all border border-white/5">
+
                 <i class="fab fa-github mr-1.5"></i>Kod
+
               </a>
+
               <a href="avukat.html" class="flex-1 text-center py-2.5 rounded-xl text-xs font-semibold transition-all text-white" style="background:linear-gradient(135deg,#0ea5e9,#00c9a0)">
+
                 <i class="fas fa-external-link-alt mr-1.5"></i>Demo
+
               </a>
+
             </div>
+
           </div>
+
         </div>
 
+
+
         <div class="project-card glass-card rounded-3xl overflow-hidden border border-white/5">
+
           <div class="h-44 flex items-center justify-center relative overflow-hidden" style="background: linear-gradient(135deg,rgba(245,158,11,0.2),rgba(239,68,68,0.15))">
+
             <svg class="w-16 h-16 text-[#7c3aed] drop-shadow-[0_0_12px_rgba(124,58,237,0.6)] transition-transform duration-500 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+
             </svg>
+
           </div>
+
           <div class="p-6">
+
             <div class="flex flex-wrap gap-2 mb-3">
+
               <span class="project-tag px-2.5 py-1 rounded-lg text-xs font-medium border border-white/10 text-gray-400 transition-all">Terminal</span>
+
               <span class="project-tag px-2.5 py-1 rounded-lg text-xs font-medium border border-white/10 text-gray-400 transition-all">Modern IT</span>
+
             </div>
+
             <h3 class="font-bold text-lg text-white mb-2">Lucht Tech Portfolyo</h3>
+
             <p class="text-gray-400 text-sm leading-relaxed mb-4">Geliştiriciler için terminal temalı, yüksek performanslı ve hız odaklı teknik çözüm.</p>
+
             <div class="flex gap-3">
+
               <a href="https://github.com/luchtdev/tech-portfolio"target="_blank" class="flex-1 text-center py-2.5 rounded-xl text-xs font-semibold bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all border border-white/5">
+
   <i class="fab fa-github mr-1.5"></i>Kod
+
 </a>
+
               <a href="tech.html" class="flex-1 text-center py-2.5 rounded-xl text-xs font-semibold transition-all text-white" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">
+
                 <i class="fas fa-external-link-alt mr-1.5"></i>Demo
+
               </a>
+
             </div>
+
           </div>
+
         </div>
 
+
+
         <div class="project-card glass-card rounded-3xl overflow-hidden border border-white/5">
+
           <div class="h-44 flex items-center justify-center relative overflow-hidden" style="background: linear-gradient(135deg,rgba(236,72,153,0.2),rgba(124,58,237,0.15))">
+
             <svg class="w-16 h-16 text-[#00f5d4] drop-shadow-[0_0_12px_rgba(0,245,212,0.6)] transition-transform duration-500 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+
             </svg>
+
           </div>
+
           <div class="p-6">
+
             <div class="flex flex-wrap gap-2 mb-3">
+
               <span class="project-tag px-2.5 py-1 rounded-lg text-xs font-medium border border-white/10 text-gray-400 transition-all">E-Ticaret</span>
+
               <span class="project-tag px-2.5 py-1 rounded-lg text-xs font-medium border border-white/10 text-gray-400 transition-all">Tailwind CSS</span>
+
             </div>
+
             <h3 class="font-bold text-lg text-white mb-2">Lucht Boutique</h3>
+
             <p class="text-gray-400 text-sm leading-relaxed mb-4">Butik mağazalar için satış odaklı, hızlı ve minimalist alışveriş deneyimi sunan web çözümü.</p>
+
             <div class="flex gap-3">
+
               <a href="#" class="flex-1 text-center py-2.5 rounded-xl text-xs font-semibold bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all border border-white/5">
+
                 <i class="fab fa-github mr-1.5"></i>Kod
+
               </a>
+
               <a href="shop.html" class="flex-1 text-center py-2.5 rounded-xl text-xs font-semibold transition-all text-white" style="background:linear-gradient(135deg,#ec4899,#7c3aed)">
+
                 <i class="fas fa-external-link-alt mr-1.5"></i>Demo
+
               </a>
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <a href="https://github.com/luchtdev" target="_blank" class="project-card glass-card rounded-3xl overflow-hidden border border-dashed border-white/10 flex items-center justify-center p-6 min-h-64 cursor-pointer group">
+
           <div class="text-center">
+
             <div class="w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center transition-all duration-300 group-hover:scale-110" style="background:rgba(0,245,212,0.08); border:1px solid rgba(0,245,212,0.15)">
+
               <svg class="w-16 h-16 text-[#00f5d4] drop-shadow-[0_0_12px_rgba(0,245,212,0.6)] transition-transform duration-500 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"></path>
+
               </svg>
+
             </div>
+
             <p class="font-bold text-white mb-1">Daha Fazla Proje</p>
+
             <p class="text-xs text-gray-500 mb-4">GitHub profilimde 50+ proje mevcut</p>
+
             <span class="text-neon text-xs font-semibold hover:underline">GitHub'da Görüntüle →</span>
+
           </div>
+
         </a>
 
+
+
       </div>
+
     </div>
+
   </section>
+
+
 
   <section id="contact" class="relative py-24 z-10">
     <div class="max-w-3xl mx-auto px-6 text-center fade-up">
@@ -526,172 +1047,312 @@
       <p class="text-gray-400 mb-10 max-w-lg mx-auto">Freelance projeler, tam zamanlı pozisyonlar veya sadece bir merhaba demek için her zaman ulaşabilirsin.</p>
 
       <div class="glass-card rounded-3xl p-8 text-left">
-        <div class="grid sm:grid-cols-2 gap-4 mb-4">
-          <div>
-            <label class="text-xs font-semibold text-gray-400 mb-2 block uppercase tracking-wide">Ad Soyad</label>
-            <input type="text" 
-            placeholder="Adınız" 
-            class="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none transition-all focus:ring-1 focus:ring-[#00f5d4]/40 focus:border-[#00f5d4]/40" 
-            style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);">         </div>
-          <div>
-            <label class="text-xs font-semibold text-gray-400 mb-2 block uppercase tracking-wide">E-posta</label>
-            <input type="email" placeholder="ornek@email.com" class="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none focus:ring-1 transition-all" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08)">
+        <form action="https://formspree.io/f/xreogqbv" method="POST">
+          <div class="grid sm:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="text-xs font-semibold text-gray-400 mb-2 block uppercase tracking-wide">Ad Soyad</label>
+              <input type="text" name="name" placeholder="Adınız" required class="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none transition-all focus:ring-1 focus:ring-[#00f5d4]/40 focus:border-[#00f5d4]/40" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);">         
+            </div>
+            <div>
+              <label class="text-xs font-semibold text-gray-400 mb-2 block uppercase tracking-wide">E-posta</label>
+              <input type="email" name="email" placeholder="ornek@email.com" required class="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none focus:ring-1 transition-all" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08)">
+            </div>
           </div>
-        </div>
-        <div class="mb-4">
-          <label class="text-xs font-semibold text-gray-400 mb-2 block uppercase tracking-wide">Mesaj</label>
-          <textarea rows="4" placeholder="Projenizi anlatın..." class="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none resize-none transition-all" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08)"></textarea>
-        </div>
-        <button class="cta-btn w-full py-4 rounded-xl font-semibold text-white text-sm flex items-center justify-center gap-2">
-          <span>Mesaj Gönder</span>
-          <i class="fas fa-paper-plane text-xs"></i>
-        </button>
-      </div>
+          <div class="mb-4">
+            <label class="text-xs font-semibold text-gray-400 mb-2 block uppercase tracking-wide">Mesaj</label>
+            <textarea rows="4" name="message" placeholder="Projenizi anlatın..." required class="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none resize-none transition-all" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08)"></textarea>
+          </div>
+          
+          <button type="submit" class="cta-btn w-full py-4 rounded-xl font-semibold text-white text-sm flex items-center justify-center gap-2 border-none">
+            <span>Mesaj Gönder</span>
+            <i class="fas fa-paper-plane text-xs"></i>
+          </button>
+        </form> </div>
     </div>
   </section>
 
+
+
   <footer class="relative z-10 border-t border-white/5 py-12">
+
     <div class="max-w-6xl mx-auto px-6">
+
       <div class="flex flex-col md:flex-row items-center justify-between gap-8">
 
+
+
         <div class="text-center md:text-left">
+
           <div class="flex items-center gap-2 justify-center md:justify-start mb-2">
+
             <svg class="w-10 h-10 text-[#7c3aed] drop-shadow-[0_0_12px_rgba(124,58,237,0.6)] transition-transform duration-500 hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+
             </svg>
+
             <span class="font-semibold text-white">Lucht</span>
+
           </div>
+
           <p class="text-xs text-gray-600">IT Specialist & Developer · Bursa, Türkiye 🇹🇷</p>
+
         </div>
+
+
 
         <div class="flex items-center gap-3">
+
           <a href="https://github.com/luchtdev" target="_blank" class="social-btn w-11 h-11 rounded-xl flex items-center justify-center text-gray-400" aria-label="GitHub">
+
             <i class="fab fa-github"></i>
+
           </a>
+
           <a href="#" class="social-btn w-11 h-11 rounded-xl flex items-center justify-center text-gray-400 opacity-50 cursor-not-allowed" aria-label="LinkedIn">
+
             <i class="fab fa-linkedin-in"></i>
+
           </a>
+
           <a href="#" class="social-btn w-11 h-11 rounded-xl flex items-center justify-center text-gray-400 opacity-50 cursor-not-allowed" aria-label="Twitter">
+
             <i class="fab fa-x-twitter"></i>
+
           </a>
+
           <a href="https://instagram.com/luchtdev" target="_blank" class="social-btn w-11 h-11 rounded-xl flex items-center justify-center text-gray-400" aria-label="Instagram">
+
             <i class="fab fa-instagram"></i>
+
           </a>
+
           <a href="mailto:luchtdev@gmail.com" class="social-btn w-11 h-11 rounded-xl flex items-center justify-center text-gray-400" aria-label="E-posta">
+
             <i class="fas fa-envelope"></i>
+
           </a>
+
         </div>
 
+
+
         <p class="text-xs text-gray-600 text-center md:text-right">
+
           © 2026 Lucht.<br>
+
           <span class="text-gray-700">Sevgiyle kodlandı <span class="text-neon">♥</span></span>
+
         </p>
+
       </div>
+
     </div>
+
   </footer>
 
+
+
   <a href="https://wa.me/905XXXXXXXXX" target="_blank" class="fixed bottom-6 right-6 z-[100] bg-[#25d366] w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all group">
+
     <i class="fab fa-whatsapp text-white text-3xl"></i>
+
     <span class="absolute right-16 bg-white text-black text-xs font-bold px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap shadow-lg">
+
       Hemen Mesaj Gönderin!
+
     </span>
+
   </a>
 
+
+
   <script>
+
     const textArray = [
+
       "IT & Dev Specialist", 
+
       "79 WPM Typing Speed", 
+
       "Full-Stack Developer", 
+
       "System Administrator"
+
     ];
+
     let textIndex = 0;
+
     let charIndex = 0;
+
     
+
     const typeSpeed = 50; 
+
     const eraseSpeed = 30;
+
     const delayBetweenWords = 2000; 
+
     
+
     const typewriterElement = document.getElementById("typewriter");
+
   
+
     function type() {
+
       if (charIndex < textArray[textIndex].length) {
+
         typewriterElement.textContent += textArray[textIndex].charAt(charIndex);
+
         charIndex++;
+
         setTimeout(type, typeSpeed);
+
       } else {
+
         setTimeout(erase, delayBetweenWords);
+
       }
+
     }
+
   
+
     function erase() {
+
       if (charIndex > 0) {
+
         typewriterElement.textContent = textArray[textIndex].substring(0, charIndex - 1);
+
         charIndex--;
+
         setTimeout(erase, eraseSpeed);
+
       } else {
+
         textIndex++;
+
         if (textIndex >= textArray.length) textIndex = 0;
+
         setTimeout(type, typeSpeed);
+
       }
+
     }
+
   
+
     document.addEventListener("DOMContentLoaded", function() {
+
       if(typewriterElement) setTimeout(type, 1000);
+
     });
+
+
 
     const burger = document.getElementById('burger');
+
     const menu   = document.getElementById('mobile-menu');
+
     const b1=document.getElementById('b1'), b2=document.getElementById('b2'), b3=document.getElementById('b3');
+
     let open = false;
 
+
+
     burger.addEventListener('click', () => {
+
       open = !open;
+
       menu.classList.toggle('hidden', !open);
+
       if (open) {
+
         b1.style.transform='translateY(8px) rotate(45deg)';
+
         b2.style.opacity='0';
+
         b3.style.transform='translateY(-8px) rotate(-45deg)';
+
       } else {
+
         b1.style.transform=''; b2.style.opacity=''; b3.style.transform='';
+
       }
+
     });
 
+
+
     document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
+
       menu.classList.add('hidden'); open=false;
+
       b1.style.transform=''; b2.style.opacity=''; b3.style.transform='';
+
     }));
 
+
+
     const observer = new IntersectionObserver((entries) => {
+
       entries.forEach(e => {
+
         if (e.isIntersecting) {
+
           e.target.classList.add('visible');
+
           e.target.querySelectorAll('.progress-fill').forEach(bar => {
+
             bar.style.width = bar.dataset.width;
+
           });
+
         }
+
       });
+
     }, { threshold: 0.15 });
+
+
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
+
+
     document.querySelectorAll('.progress-fill').forEach(bar => {
+
       const obs2 = new IntersectionObserver(entries => {
+
         if (entries[0].isIntersecting) {
+
           bar.style.width = bar.dataset.width;
+
           obs2.disconnect();
+
         }
+
       }, { threshold: 0.3 });
+
       obs2.observe(bar);
+
     });
+
+
 
     document.querySelectorAll('input, textarea').forEach(el => {
+
       el.addEventListener('focus', () => el.style.borderColor = 'rgba(0,245,212,0.4)');
+
       el.addEventListener('blur',  () => el.style.borderColor = 'rgba(255,255,255,0.08)');
+
     });
 
-    document.querySelector('.cta-btn[type=undefined], footer ~ section .cta-btn, #contact .cta-btn')?.addEventListener('click', function(e) {
-      e.preventDefault();
-    });
+
+
   </script>
+
 </body>
+
 </html>
